@@ -1,0 +1,182 @@
+@import '../fonts/Montserrat/stylesheet.css';
+
+:root {
+    --black: #272727;
+    --gray: #353535;
+    --light-gray: #646464;
+    --white: #FFFFFF;
+    --orange: #EFA638;
+    --cyan: #1395DE;
+    --smoke: #D4D4D4;
+    --white-smoke: #EBEBEB;
+
+    --gap: 20px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body>main,
+body>.theme-switcher {
+    /* Balck scheme */
+    --background-color: var(--gray);
+    --secondary-color: var(--black);
+    --text-color: var(--white);
+    --accent-color: var(--orange);
+    --cell-color: var(--light-gray);
+}
+
+@media (prefers-color-scheme: light) {
+
+    body>main,
+    body>.theme-switcher {
+        /* White scheme */
+        --background-color: var(--white-smoke);
+        --secondary-color: var(--white);
+        --text-color: var(--black);
+        --accent-color: var(--cyan);
+        --cell-color: var(--smoke);
+    }
+}
+
+h1,
+h2 {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 900;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+#theme {
+    display: none;
+}
+
+#theme:checked~main,
+#theme:checked~.theme-switcher {
+    /* White scheme */
+    --background-color: var(--white-smoke);
+    --secondary-color: var(--white);
+    --text-color: var(--black);
+    --accent-color: var(--cyan);
+    --cell-color: var(--smoke);
+}
+
+#theme:checked~.theme-switcher>#icon::before {
+    margin-left: 50%;
+}
+
+.theme-switcher {
+    display: flex;
+    column-gap: var(--gap);
+
+    padding: calc(var(--gap) / 2) var(--gap);
+    border-radius: 50px;
+
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+
+    user-select: none;
+
+    position: absolute;
+    bottom: var(--gap);
+    right: var(--gap);
+
+    &>#icon {
+        display: block;
+        width: 45px;
+
+        background-color: var(--background-color);
+        border-radius: 15px;
+
+        &::before {
+            content: "";
+
+            display: block;
+
+            width: 50%;
+            aspect-ratio: 1;
+
+            background-color: var(--accent-color);
+            border-radius: 50px;
+
+            transition: margin-left .2s ease;
+        }
+    }
+}
+
+main {
+    min-height: 100dvh;
+
+    background-color: var(--background-color);
+}
+
+.calendar {
+    height: 100%;
+    width: 100%;
+}
+
+.calendar__header {
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: var(--gap);
+
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.calendar__body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 140px);
+    gap: 2px;
+
+    max-width: 1000px;
+    height: calc(100dvh - 80px);
+    margin-inline: auto;
+}
+
+.cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--cell-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: calc(var(--gap) / 2);
+}
+
+.cell__month {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cell__day-number {
+    color: var(--accent-color);
+}

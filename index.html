@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="https://kit.fontawesome.com/ed46f73f8b.js" crossorigin="anonymous" defer></script>
+    <script src="./src/js/script.js" defer></script>
+</head>
+
+<body>
+    <input type="checkbox" id="theme">
+    <label for="theme" class="theme-switcher">
+        <span id="icon"></span>
+        Переключить тему
+    </label>
+
+    <main class="main">
+        <section class="calendar">
+            <header class="calendar__header">
+                <!-- Иконка -->
+                <i class="fa-solid fa-calendar-alt fa-3x calendar__header-icon"></i>
+
+                <h1 class="calendar__title">
+                    Календарь
+                </h1>
+            </header>
+
+            <div class="calendar__body">
+                <div class="cell">
+                    <h2 class="cell__day-number"></h2>
+
+                    <div class="cell__month">
+                        <p class="cell__name"></p>
+                        <i class="fa-solid fa-umbrella cell__icon"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
