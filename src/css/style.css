@@ -170,6 +170,13 @@ main {
     color: var(--text-color);
     border-radius: 10px;
     padding: calc(var(--gap) / 2);
+
+    position: relative;
+    overflow: hidden;
+
+    &:hover>.cell__day-of-week {
+        transform: translateY(0);
+    }
 }
 
 .cell__month {
@@ -179,4 +186,19 @@ main {
 
 .cell__day-number {
     color: var(--accent-color);
+}
+
+.cell__day-of-week {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--accent-color);
+    font-size: 40px;
+    font-weight: 700;
+
+    position: absolute;
+    inset: 0;
+    transform: translateY(100%);
+    transition: transform 300ms ease;
 }
